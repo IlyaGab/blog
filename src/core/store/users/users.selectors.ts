@@ -1,1 +1,1 @@
-export const usersSelector = {};
+export const usersSelectors = {};

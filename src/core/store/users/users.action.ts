@@ -1,27 +1,24 @@
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
+import { ApiService } from "@core/services";
+import { User } from "./users.types";
+import { StoreMappedData } from "@core/types/store-mapped-data";
+import { MyKnownError } from "@core/types/my-known-message";
+import { mapListData } from "@core/helpers";
 
 export const cleanUsers = createAction("users/cleanUsers");
 
-export const getAllUsersThunk = createAsyncThunk(
-  "users/getallUsers",
-  async (_, { rejectWithValue }) => {
-    try {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/users"
-      );//axios
-      const data = await response.json();
-      
-      return {
-        keys: data.map(({ id }) => id),
-        map: data.reduce((acc, val) => {
-          return {
-            ...acc,
-            [val.id]: val,
-          };
-        }, {}),
-      };
-    } catch (error) {
-      rejectWithValue(error);
-    }
+export const getAllUsersThunk = createAsyncThunk<
+  StoreMappedData<User>,
+  undefined,
+  { rejectValue: MyKnownError }
+  // @ts-ignore
+>("users/getallUsers", async (data, { rejectWithValue }) => {
+  try {
+    const { data } = await ApiService.getAllUsers();
+    return mapListData(data);
+  } catch (error) {
+    rejectWithValue({
+      errorMessage: error,
+    } as MyKnownError);
   }
-);
+});

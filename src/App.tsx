@@ -2,8 +2,8 @@ import React from "react";
 import "./App.css";
 import { ThemeProvider } from "styled-components";
 import { UsersPage } from "@pages/users";
-import { getTheme, ThemeType } from "@theme/index";
-import { store } from "@store/index";
+import { getTheme, ThemeType } from "@shared/theme";
+import { store } from "@core/store";
 import { Provider } from "react-redux";
 
 const theme = getTheme(ThemeType.Light);

@@ -19,12 +19,12 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-     "@pages/*": ["pages/*"],
-     "@theme/*": ["theme/*"],
-     "@store/*": ["core/store/*"],
-   }
+        "@pages/*": ["./src/pages/*"],
+        "@shared/*": ["./src/shared/*"],
+        "@core/*": ["./src/core/*"],
+    }
   },
   "include": [
     "src"

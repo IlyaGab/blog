@@ -1,15 +1,20 @@
 import { useEffect } from "react";
 import * as Styled from "./users.styles";
-import { useUsersApi } from "@store/users/user.hooks";
+import { useUsersApi } from "@core/store";
 
 const Users: React.FC = () => {
-  const { getAllUsers } = useUsersApi();
+  const { getAllUsers, isLoading, usersIds, usersMap } = useUsersApi();
+
   useEffect(() => {
     getAllUsers();
   }, []);
+
+  if (isLoading) return <h1>Loading...</h1>;
+  
   return (
     <Styled.Wrapper>
-      <h1>Hello medved</h1>
+      {!!usersIds.length &&
+        usersIds.map((id) => <div key={id}>{usersMap[id].name}</div>)}
     </Styled.Wrapper>
   );
 };

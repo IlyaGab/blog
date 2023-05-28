@@ -9,8 +9,8 @@ export const usersReducer = createReducer(initialState, (builder) => {
       state.isLoading = true;
     })
     .addCase(Actions.getAllUsersThunk.fulfilled, (state, { payload }) => {
-      state.usersIds = payload.keys;
-      state.usersMap = payload.map;
+      state.usersIds = payload.mapIds;
+      state.usersMap = payload.mapData;
       state.isLoading = false;
     })
     .addCase(Actions.getAllUsersThunk.rejected, (state) => {

@@ -1,4 +1,5 @@
-import { AppTheme, ThemeType } from "./theme.type";
+
+import {ColorsType} from "./theme.type";
 
 // const appTheme = new Map<ThemeType, AppTheme>();
 
@@ -18,17 +19,19 @@ import { AppTheme, ThemeType } from "./theme.type";
 //   return appTheme.get(themeType) as AppTheme;
 // };
 
-const appTheme = {
-  [ThemeType.Light]: {
+export const appTheme = {
+  [ColorsType.Light]: {
     colors: {
       primary: "red",
     },
   },
-  [ThemeType.Dark]: {
+  [ColorsType.Dark]: {
     colors: {
       primary: "blue",
     },
   },
 };
 
-export const getTheme = (themeType: ThemeType) => appTheme[themeType];
+
+
+export const getTheme = (themeType: ColorsType) => appTheme[themeType];

@@ -1,10 +1,10 @@
-export interface AppTheme {
+export interface AppThemeType {
   colors: {
     primary: string,
-  }
+  },
 }
 
-export enum ThemeType {
+export enum ColorsType {
   Dark = 'DARK',
   Light = 'LIGHT'
 }

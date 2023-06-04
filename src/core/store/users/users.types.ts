@@ -24,7 +24,7 @@ export interface User {
 
 export type UsersResponse = User[];
 
-export interface CounterState {
+export interface UsersState {
   isLoading: boolean;
   usersIds: string[];
   usersMap: { [key: string]: User };

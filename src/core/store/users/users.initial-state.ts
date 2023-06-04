@@ -1,6 +1,6 @@
-import { CounterState } from "./users.types";
+import { UsersState } from "./users.types";
 
-export const initialState: CounterState = {
+export const initialState: UsersState = {
   usersIds: [],
   usersMap: {},
   isLoading: false,

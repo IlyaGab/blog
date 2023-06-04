@@ -5,8 +5,8 @@ import { getTheme, ColorsType } from "@shared/theme";
 import { store } from "@core/store";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import Header from "@shared/components/Header/header.component";
-import Body from "@shared/components/Body/body.component";
+import Header from "@shared/components/header/header.component";
+import Body from "@shared/components/body/body.component";
 
 const theme = getTheme(ColorsType.Light);
 

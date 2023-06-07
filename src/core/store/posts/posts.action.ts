@@ -1,20 +1,20 @@
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 import { ApiService } from "@core/services";
-import { Todo } from "./todos.types";
+import { Post} from "./posts.types";
 import { StoreMappedData } from "@core/types/store-mapped-data";
 import { MyKnownError } from "@core/types/my-known-message";
 import { mapListData } from "@core/helpers";
 
-export const cleanTodos = createAction("todos/cleanTodos");
+export const cleanPosts = createAction("posts/cleanPosts");
 
-export const getAllTodosThunk = createAsyncThunk<
-  StoreMappedData<Todo>,
+export const getAllPostsThunk = createAsyncThunk<
+  StoreMappedData<Post>,
   undefined,
   { rejectValue: MyKnownError }
   // @ts-ignore
->("todos/getAllTodos", async (data, { rejectWithValue }) => {
-  try {
-    const { data } = await ApiService.getAllTodos();
+>("posts/getAllPosts", async (data, { rejectWithValue }) => {
+  try {  
+    const { data } = await ApiService.getAllPosts();
     return mapListData(data);
   } catch (error) {
     rejectWithValue({

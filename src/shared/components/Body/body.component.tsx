@@ -1,6 +1,7 @@
 import HomePage from "@pages/homepage/homepage.component";
 import NewsPage from "@pages/news/news.component";
 import NotFoundPage from "@pages/notfoundpage/not-found.component";
+import PostsPage from "@pages/posts/posts.component";
 import TodosPage from "@pages/todos/todos.component";
 import { UsersPage } from "@pages/users";
 import React from "react";
@@ -11,7 +12,8 @@ enum RouteNames {
   NEWS = "/news",
   NOT_FOUND_PAGE = "/*",
   TODOS = "/todos",
-  USERS = "/users",
+  USERS = "/users/",
+  POSTS = "/posts",
 }
 
 const Body: React.FC = () => {
@@ -21,6 +23,7 @@ const Body: React.FC = () => {
       <Route path={RouteNames.NEWS} element={<NewsPage />} />
       <Route path={RouteNames.TODOS} element={<TodosPage />} />
       <Route path={RouteNames.USERS} element={<UsersPage />} />
+      <Route path={RouteNames.POSTS} element={<PostsPage />} />
       <Route path={RouteNames.NOT_FOUND_PAGE} element={<NotFoundPage />} />
     </Routes>
   );

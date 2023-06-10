@@ -4,7 +4,7 @@ import { getTheme, ColorsType } from "@shared/theme";
 import { store } from "@core/store";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { Header } from "@shared/components/zalupa";
+import { Header } from "@shared/components/header";
 import { Router } from "@shared/components/app-routes";
 
 const theme = getTheme(ColorsType.Light);

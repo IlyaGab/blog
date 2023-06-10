@@ -1,8 +1,8 @@
 export interface Post {
   userId: string;
-  id:string;
-  title:string;
-  body:string;
+  id: string;
+  title: string;
+  body: string;
 }
 
 export type PostsResponse = Post[];

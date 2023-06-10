@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { getAllPostsThunk } from "./posts.action";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, } from "@core/store";
+import { AppDispatch } from "@core/store";
 import { postsSelector } from "./posts.selectors";
 
 export const usePostsApi = () => {

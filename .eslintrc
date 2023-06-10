@@ -1,14 +1,20 @@
 {
-    "extends": ["airbnb", "prettier"],
-    "plugins": ["prettier"],
-    "rules": {
-      "prettier/prettier": ["error"]
-    },
-    "settings": {
-        "import/resolver": {
-            "node": {
-            "extensions": [".js", ".jsx", ".ts", ".tsx"]
-            }
-        }
+  "extends": ["prettier", "plugin:@typescript-eslint/recommended"],
+  "plugins": ["prettier"],
+  "rules": {
+    "@typescript-eslint/ban-ts-comment": "warn",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     }
+  }
 }

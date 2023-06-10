@@ -2,7 +2,7 @@ import { usePostsApi } from "@core/store/posts";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const PostsPage = () => {
+const PostsPage: React.FC = () => {
   const { getAllPosts, isLoading, postsIds, postsMap } = usePostsApi();
 
   useEffect(() => {

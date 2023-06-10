@@ -3,7 +3,6 @@ import { usersReducer } from "../users";
 import { todosReducer } from "../todos";
 import { postsReducer } from "../posts";
 
-
 export const store = configureStore({
   reducer: {
     users: usersReducer,

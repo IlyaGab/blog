@@ -1,5 +1,4 @@
-
-import {ColorsType} from "./theme.type";
+import { ColorsType } from "./theme.type";
 
 // const appTheme = new Map<ThemeType, AppTheme>();
 
@@ -31,7 +30,5 @@ export const appTheme = {
     },
   },
 };
-
-
 
 export const getTheme = (themeType: ColorsType) => appTheme[themeType];

@@ -5,7 +5,6 @@ export interface Todo {
   completed: boolean;
 }
 
-
 export type TodosResponse = Todo[];
 
 export interface TodosState {

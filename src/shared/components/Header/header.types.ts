@@ -1,3 +1,1 @@
-export interface HeaderTypes {
-
-}
+export interface HeaderTypes {}

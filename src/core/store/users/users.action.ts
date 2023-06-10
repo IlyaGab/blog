@@ -11,7 +11,7 @@ export const getAllUsersThunk = createAsyncThunk<
   StoreMappedData<User>,
   undefined,
   { rejectValue: MyKnownError }
-// @ts-ignore
+  // @ts-ignore
 >("users/getAllUsers", async (data, { rejectWithValue }) => {
   try {
     const { data } = await ApiService.getAllUsers();

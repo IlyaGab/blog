@@ -5,7 +5,7 @@ import { AppDispatch, usersSelector } from "@core/store";
 
 export const useUsersApi = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isLoading, usersIds, usersMap } = useSelector(usersSelector)
+  const { isLoading, usersIds, usersMap } = useSelector(usersSelector);
 
   const getAllUsers = useCallback(() => {
     dispatch(getAllUsersThunk());

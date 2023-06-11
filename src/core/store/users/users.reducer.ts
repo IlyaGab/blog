@@ -15,5 +15,15 @@ export const usersReducer = createReducer(initialState, (builder) => {
     })
     .addCase(Actions.getAllUsersThunk.rejected, (state) => {
       state.isLoading = false;
+    })
+    .addCase(Actions.getUsersWithIdThunk.pending, (state) => {
+      state.isLoading = true;
+    })
+    .addCase(Actions.getUsersWithIdThunk.fulfilled, (state, { payload }) => {
+      state.userWithId = payload;
+      state.isLoading = false;
+    })
+    .addCase(Actions.getUsersWithIdThunk.rejected, (state) => {
+      state.isLoading = false;
     });
 });

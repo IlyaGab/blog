@@ -22,3 +22,19 @@ export const getAllUsersThunk = createAsyncThunk<
     } as MyKnownError);
   }
 });
+
+export const getUsersWithIdThunk = createAsyncThunk<
+  User,
+  string | undefined,
+  { rejectValue: MyKnownError }
+  // @ts-ignore
+>("users/getUserWithId", async (id, { rejectWithValue }) => {
+  try {
+    const data = await ApiService.getUserWithId(id);
+    return data;
+  } catch (error) {
+    rejectWithValue({
+      errorMessage: error,
+    } as MyKnownError);
+  }
+});

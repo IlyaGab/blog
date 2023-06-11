@@ -28,4 +28,5 @@ export interface UsersState {
   isLoading: boolean;
   usersIds: string[];
   usersMap: { [key: string]: User };
+  userWithId: null | User;
 }

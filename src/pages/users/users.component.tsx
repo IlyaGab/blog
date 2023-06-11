@@ -16,7 +16,7 @@ const Users: React.FC = () => {
     <Styled.Wrapper>
       {!!usersIds.length &&
         usersIds.map((id) => (
-          <Link key={id} to={`/posts/${usersMap[id].id}`}>
+          <Link key={id} to={`/users/${id}`}>
             {usersMap[id].name}
           </Link>
         ))}

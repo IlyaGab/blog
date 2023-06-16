@@ -1,4 +1,5 @@
-import { ColorsType } from "./theme.type";
+import { css } from "styled-components";
+import { ThemeType } from "./theme.type";
 
 // const appTheme = new Map<ThemeType, AppTheme>();
 
@@ -19,16 +20,60 @@ import { ColorsType } from "./theme.type";
 // };
 
 export const appTheme = {
-  [ColorsType.Light]: {
+  [ThemeType.Light]: {
     colors: {
-      primary: "red",
+      primary: "#000000",
+    },
+    fonts: {
+      primary: {
+        20: css`
+          font-family: "Montserrat";
+          font-weight: 400;
+          font-size: 1rem;
+        `,
+        40: css`
+          font-family: "Montserrat";
+          font-weight: 500;
+          font-size: 1.2rem;
+        `,
+        60: css`
+          font-family: "Montserrat";
+          font-weight: 700;
+          font-size: 1.4rem;
+        `,
+      },
+    },
+    backgrounds: {
+      primary: "#F7F6FE",
     },
   },
-  [ColorsType.Dark]: {
+  [ThemeType.Dark]: {
     colors: {
-      primary: "blue",
+      primary: "ffffff",
+    },
+    fonts: {
+      primary: {
+        20: css`
+          font-family: "Montserrat";
+          font-weight: 400;
+          font-size: 1rem;
+        `,
+        40: css`
+          font-family: "Montserrat";
+          font-weight: 500;
+          font-size: 1.2rem;
+        `,
+        60: css`
+          font-family: "Montserrat";
+          font-weight: 700;
+          font-size: 1.4rem;
+        `,
+      },
+    },
+    backgrounds: {
+      primary: "#26264F",
     },
   },
 };
 
-export const getTheme = (themeType: ColorsType) => appTheme[themeType];
+export const getTheme = (theme: ThemeType) => appTheme[theme];

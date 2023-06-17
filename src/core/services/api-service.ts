@@ -9,7 +9,7 @@ const ApiService = {
   getAllUsers: () => axios.get<User[]>("/users"),
   getAllTodos: () => axios.get<Todo[]>("/todos"),
   getAllPosts: () => axios.get<Post[]>("/posts"),
-  getUserById: (id: string | undefined) => axios.get<User>(`/users/${id}`),
+  getUserById: (id: string) => axios.get<User>(`/users/${id}`),
 };
 
 export default ApiService;

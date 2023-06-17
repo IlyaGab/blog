@@ -1,15 +1,19 @@
 import { useCallback } from "react";
-import { getAllTodosThunk } from "./todos.action";
+import { getAllTodosThunk } from "./todos.thunks";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, todosSelector } from "@core/store";
+import { AppDispatch, cleanTodosAction, todosSelector } from "@core/store";
 
 export const useTodosApi = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { isLoading, todoIds, todoMap } = useSelector(todosSelector);
 
   const getAllTodos = useCallback(() => {
-    dispatch(getAllTodosThunk());
+    return dispatch(getAllTodosThunk());
   }, [dispatch]);
 
-  return { getAllTodos, isLoading, todoIds, todoMap };
+  const cleanTodos = useCallback(() => {
+    dispatch(cleanTodosAction());
+  }, [dispatch]);
+
+  return { getAllTodos, cleanTodos, isLoading, todoIds, todoMap };
 };

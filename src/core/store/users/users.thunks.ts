@@ -1,16 +1,15 @@
-import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ApiService } from "@core/services";
 import { User } from "./users.types";
 import { StoreMappedData } from "@core/types/store-mapped-data";
 import { MyKnownError } from "@core/types/my-known-message";
 import { mapListData } from "@core/helpers";
 
-export const cleanUsers = createAction("users/cleanUsers");
-
 export const getAllUsersThunk = createAsyncThunk<
   StoreMappedData<User>,
   undefined,
   { rejectValue: MyKnownError }
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
 >("users/getAllUsers", async (data, { rejectWithValue }) => {
   try {
@@ -23,14 +22,15 @@ export const getAllUsersThunk = createAsyncThunk<
   }
 });
 
-export const getUsersWithIdThunk = createAsyncThunk<
+export const getUsersByIdThunk = createAsyncThunk<
   User,
-  string | undefined,
+  string,
   { rejectValue: MyKnownError }
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
->("users/getUserWithId", async (id, { rejectWithValue }) => {
+>("users/getUserById", async (id, { rejectWithValue }) => {
   try {
-    const data = await ApiService.getUserWithId(id);
+    const data = await ApiService.getUserById(id);
     return data;
   } catch (error) {
     rejectWithValue({

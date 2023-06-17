@@ -1,29 +1,33 @@
 import { initialState } from "./users.initial-state";
 import { createReducer } from "@reduxjs/toolkit";
-import * as Actions from "./users.action";
+import * as AsyncActions from "./users.thunks";
+import * as Actions from "./users.actions";
 
 export const usersReducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(Actions.cleanUsers, () => initialState)
-    .addCase(Actions.getAllUsersThunk.pending, (state) => {
+    .addCase(Actions.cleanUsersAction, () => initialState)
+    .addCase(Actions.cleanCurrentUserAction, (state) => {
+      state.currentUser = initialState.currentUser;
+    })
+    .addCase(AsyncActions.getAllUsersThunk.pending, (state) => {
       state.isLoading = true;
     })
-    .addCase(Actions.getAllUsersThunk.fulfilled, (state, { payload }) => {
+    .addCase(AsyncActions.getAllUsersThunk.fulfilled, (state, { payload }) => {
       state.usersIds = payload.mapIds;
       state.usersMap = payload.mapData;
       state.isLoading = false;
     })
-    .addCase(Actions.getAllUsersThunk.rejected, (state) => {
+    .addCase(AsyncActions.getAllUsersThunk.rejected, (state) => {
       state.isLoading = false;
     })
-    .addCase(Actions.getUsersWithIdThunk.pending, (state) => {
+    .addCase(AsyncActions.getUsersByIdThunk.pending, (state) => {
       state.isLoading = true;
     })
-    .addCase(Actions.getUsersWithIdThunk.fulfilled, (state, { payload }) => {
-      state.userWithId = payload;
+    .addCase(AsyncActions.getUsersByIdThunk.fulfilled, (state, { payload }) => {
+      state.currentUser = payload;
       state.isLoading = false;
     })
-    .addCase(Actions.getUsersWithIdThunk.rejected, (state) => {
+    .addCase(AsyncActions.getUsersByIdThunk.rejected, (state) => {
       state.isLoading = false;
     });
 });

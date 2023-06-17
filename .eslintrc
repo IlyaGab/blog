@@ -1,5 +1,5 @@
 {
-  "extends": ["prettier", "plugin:@typescript-eslint/recommended"],
+  "extends": ["prettier", "plugin:@typescript-eslint/recommended", "react-app"],
   "plugins": ["prettier"],
   "rules": {
     "@typescript-eslint/ban-ts-comment": "warn",

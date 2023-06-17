@@ -23,6 +23,9 @@ export const appTheme = {
   [ThemeType.Light]: {
     colors: {
       primary: "#000000",
+      backgrounds: {
+        primary: "#f5f5f5",
+      },
     },
     fonts: {
       primary: {
@@ -42,14 +45,14 @@ export const appTheme = {
           font-size: 1.4rem;
         `,
       },
-    },
-    backgrounds: {
-      primary: "#F7F6FE",
     },
   },
   [ThemeType.Dark]: {
     colors: {
       primary: "ffffff",
+      backgrounds: {
+        primary: "#141414",
+      },
     },
     fonts: {
       primary: {
@@ -69,9 +72,6 @@ export const appTheme = {
           font-size: 1.4rem;
         `,
       },
-    },
-    backgrounds: {
-      primary: "#26264F",
     },
   },
 };

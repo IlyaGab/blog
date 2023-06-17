@@ -3,11 +3,14 @@ import React from "react";
 import { useEffect } from "react";
 
 const TodosPage: React.FC = () => {
-  const { getAllTodos, isLoading, todoIds, todoMap } = useTodosApi();
+  const { getAllTodos, cleanTodos, isLoading, todoIds, todoMap } = useTodosApi();
 
   useEffect(() => {
     getAllTodos();
-  }, [getAllTodos]);
+    return () => {
+      cleanTodos();
+    };
+  }, [getAllTodos, cleanTodos]);
 
   if (isLoading) return <h1>Loading...</h1>;
 

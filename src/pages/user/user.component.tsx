@@ -3,16 +3,21 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 const UserPage: React.FC = () => {
-  const { getUserWithId, userWithId, isLoading } = useUsersApi();
+  const { getUserById, cleanCurrentUser, currentUser, isLoading } = useUsersApi();
   const { id } = useParams();
 
   useEffect(() => {
-    getUserWithId(id);
-  }, [getUserWithId]);
+    if (id) {
+      getUserById(id);
+    }
+    return () => {
+      cleanCurrentUser();
+    };
+  }, [getUserById, cleanCurrentUser, id]);
 
   if (isLoading) return <h1>Loading...</h1>;
 
-  return <div> {JSON.stringify(userWithId)}</div>;
+  return <div> {JSON.stringify(currentUser)}</div>;
 };
 
 export default UserPage;

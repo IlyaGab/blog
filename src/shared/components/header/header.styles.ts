@@ -5,6 +5,6 @@ export const Header = styled.div`
   justify-content: space-around;
   margin: 0 auto;
   padding: 20px;
-  background: ${({ theme }) => theme.backgrounds.primary};
+  background: ${({ theme }) => theme.colors.backgrounds.primary};
   ${({ theme }) => theme.fonts.primary[60]};
 `;

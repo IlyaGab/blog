@@ -1,14 +1,13 @@
 import React from "react";
 import * as Styled from "./header.styles";
-import { NavLink } from "react-router-dom";
 
 const Header: React.FC = () => {
   return (
     <Styled.Header>
-      <NavLink to="/blog">Home</NavLink>
-      <NavLink to="/users">Users</NavLink>
-      <NavLink to="/todos">Todos</NavLink>
-      <NavLink to="/news">News</NavLink>
+      <Styled.NavigationLink to="/blog">Home</Styled.NavigationLink>
+      <Styled.NavigationLink to="/users">Users</Styled.NavigationLink>
+      <Styled.NavigationLink to="/todos">Todos</Styled.NavigationLink>
+      <Styled.NavigationLink to="/news">News</Styled.NavigationLink>
     </Styled.Header>
   );
 };

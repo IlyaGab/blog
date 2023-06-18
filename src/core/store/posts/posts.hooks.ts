@@ -1,16 +1,21 @@
 import { useCallback } from "react";
-import { getAllPostsThunk } from "./posts.action";
+import { getAllPostsThunk } from "./posts.thunks";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "@core/store";
 import { postsSelector } from "./posts.selectors";
+import { cleanPosts } from "./posts.actions";
 
 export const usePostsApi = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { isLoading, postsIds, postsMap } = useSelector(postsSelector);
 
   const getAllPosts = useCallback(() => {
-    dispatch(getAllPostsThunk());
+    return dispatch(getAllPostsThunk());
   }, [dispatch]);
 
-  return { getAllPosts, isLoading, postsIds, postsMap };
+  const cleanAllPosts = useCallback(() => {
+    return dispatch(cleanPosts());
+  }, [dispatch]);
+
+  return { getAllPosts, cleanAllPosts, isLoading, postsIds, postsMap };
 };

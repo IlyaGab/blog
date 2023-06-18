@@ -1,10 +1,23 @@
 import { useUsersApi } from "@core/store";
-import React, { useEffect } from "react";
+import PostsPage from "@pages/posts/posts.component";
+import { TodosPage } from "@pages/todos";
+import { Button } from "@shared/ui-kit/button";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+enum Tabs {
+  Posts = "POSTS",
+  Todos = "TODOS",
+}
+
 const UserPage: React.FC = () => {
-  const { getUserById, cleanCurrentUser, currentUser, isLoading } = useUsersApi();
+  const { getUserById, cleanCurrentUser, isLoading } = useUsersApi();
   const { id } = useParams();
+  const [currentTab, setCurrentTab] = useState(Tabs.Posts);
+
+  const onTabClick = (tab: Tabs) => () => {
+    setCurrentTab(tab);
+  };
 
   useEffect(() => {
     if (id) {
@@ -17,7 +30,14 @@ const UserPage: React.FC = () => {
 
   if (isLoading) return <h1>Loading...</h1>;
 
-  return <div> {JSON.stringify(currentUser)}</div>;
+  return (
+    <div>
+      <Button onClick={onTabClick(Tabs.Posts)} name={"Posts"} />
+      <Button onClick={onTabClick(Tabs.Todos)} name={"Todos"} />
+      {currentTab === Tabs.Posts && <PostsPage />}
+      {currentTab === Tabs.Todos && <TodosPage />}
+    </div>
+  );
 };
 
 export default UserPage;

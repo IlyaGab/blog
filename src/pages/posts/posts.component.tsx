@@ -3,11 +3,16 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const PostsPage: React.FC = () => {
-  const { getAllPosts, isLoading, postsIds, postsMap } = usePostsApi();
+  const { getAllPosts, cleanAllPosts, isLoading, postsIds, postsMap } = usePostsApi();
 
   useEffect(() => {
     getAllPosts();
-  }, [getAllPosts]);
+    return () => {
+      cleanAllPosts();
+    };
+  }, [getAllPosts, cleanAllPosts]);
+
+  if (isLoading) return <h1>Loading...</h1>;
 
   return (
     <div>

@@ -1,11 +1,9 @@
-import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ApiService } from "@core/services";
 import { Post } from "./posts.types";
 import { StoreMappedData } from "@core/types/store-mapped-data";
 import { MyKnownError } from "@core/types/my-known-message";
 import { mapListData } from "@core/helpers";
-
-export const cleanPosts = createAction("posts/cleanPosts");
 
 export const getAllPostsThunk = createAsyncThunk<
   StoreMappedData<Post>,

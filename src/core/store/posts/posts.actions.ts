@@ -1,3 +1,3 @@
 import { createAction } from "@reduxjs/toolkit";
 
-export const cleanPosts = createAction("posts/cleanPosts");
+export const cleanPostsAction = createAction("posts/cleanPosts");

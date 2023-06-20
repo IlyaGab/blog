@@ -6,15 +6,15 @@ import * as Actions from "./todos.actions";
 export const todosReducer = createReducer(initialTodoState, (builder) => {
   builder
     .addCase(Actions.cleanTodosAction, () => initialTodoState)
-    .addCase(AsyncActions.getAllTodosThunk.pending, (state) => {
+    .addCase(AsyncActions.getTodosByUserIdThunk.pending, (state) => {
       state.isLoading = true;
     })
-    .addCase(AsyncActions.getAllTodosThunk.fulfilled, (state, { payload }) => {
+    .addCase(AsyncActions.getTodosByUserIdThunk.fulfilled, (state, { payload }) => {
       state.todoIds = payload.mapIds;
       state.todoMap = payload.mapData;
       state.isLoading = false;
     })
-    .addCase(AsyncActions.getAllTodosThunk.rejected, (state) => {
+    .addCase(AsyncActions.getTodosByUserIdThunk.rejected, (state) => {
       state.isLoading = false;
     });
 });

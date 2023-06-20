@@ -1,16 +1,19 @@
 import { usePostsApi } from "@core/store/posts";
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const PostsPage: React.FC = () => {
-  const { getAllPosts, cleanAllPosts, isLoading, postsIds, postsMap } = usePostsApi();
+  const { getPostsByUserId, cleanPosts, isLoading, postsIds, postsMap } = usePostsApi();
+  const { id } = useParams();
 
   useEffect(() => {
-    getAllPosts();
+    if (id) {
+      getPostsByUserId(id);
+    }
     return () => {
-      cleanAllPosts();
+      cleanPosts();
     };
-  }, [getAllPosts, cleanAllPosts]);
+  }, [getPostsByUserId, cleanPosts, id]);
 
   if (isLoading) return <h1>Loading...</h1>;
 
@@ -18,9 +21,9 @@ const PostsPage: React.FC = () => {
     <div>
       {!!postsIds.length &&
         postsIds.map((id) => (
-          <Link key={id} to={`${postsMap[id].userId}`}>
-            {postsMap[id].body}
-          </Link>
+          <li key={id}>
+            {postsMap[id].id} - {postsMap[id].body}
+          </li>
         ))}
     </div>
   );

@@ -1,16 +1,20 @@
 import { useTodosApi } from "@core/store";
 import React from "react";
 import { useEffect } from "react";
+import { useParams } from "react-router";
 
 const TodosPage: React.FC = () => {
-  const { getAllTodos, cleanTodos, isLoading, todoIds, todoMap } = useTodosApi();
+  const { getTodosByUserId, cleanTodos, isLoading, todoIds, todoMap } = useTodosApi();
+  const { id } = useParams();
 
   useEffect(() => {
-    getAllTodos();
+    if (id) {
+      getTodosByUserId(id);
+    }
     return () => {
       cleanTodos();
     };
-  }, [getAllTodos, cleanTodos]);
+  }, [getTodosByUserId, cleanTodos, id]);
 
   if (isLoading) return <h1>Loading...</h1>;
 

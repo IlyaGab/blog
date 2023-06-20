@@ -5,15 +5,15 @@ import { StoreMappedData } from "@core/types/store-mapped-data";
 import { MyKnownError } from "@core/types/my-known-message";
 import { mapListData } from "@core/helpers";
 
-export const getAllPostsThunk = createAsyncThunk<
+export const getPostsByUserIdThunk = createAsyncThunk<
   StoreMappedData<Post>,
-  undefined,
+  string,
   { rejectValue: MyKnownError }
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
->("posts/getAllPosts", async (data, { rejectWithValue }) => {
+>("posts/getPostsById", async (id, { rejectWithValue }) => {
   try {
-    const { data } = await ApiService.getAllPosts();
+    const { data } = await ApiService.getPostsByUserId(id);
     return mapListData(data);
   } catch (error) {
     rejectWithValue({

@@ -5,16 +5,16 @@ import * as Actions from "./posts.actions";
 
 export const postsReducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(Actions.cleanPosts, () => initialState)
-    .addCase(AsyncActions.getAllPostsThunk.pending, (state) => {
+    .addCase(Actions.cleanPostsAction, () => initialState)
+    .addCase(AsyncActions.getPostsByUserIdThunk.pending, (state) => {
       state.isLoading = true;
     })
-    .addCase(AsyncActions.getAllPostsThunk.fulfilled, (state, { payload }) => {
+    .addCase(AsyncActions.getPostsByUserIdThunk.fulfilled, (state, { payload }) => {
       state.postsIds = payload.mapIds;
       state.postsMap = payload.mapData;
       state.isLoading = false;
     })
-    .addCase(AsyncActions.getAllPostsThunk.rejected, (state) => {
+    .addCase(AsyncActions.getPostsByUserIdThunk.rejected, (state) => {
       state.isLoading = false;
     });
 });

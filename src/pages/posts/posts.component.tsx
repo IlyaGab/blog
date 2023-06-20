@@ -1,6 +1,7 @@
 import { usePostsApi } from "@core/store/posts";
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import * as Styled from "./posts.styles";
 
 const PostsPage: React.FC = () => {
   const { getPostsByUserId, cleanPosts, isLoading, postsIds, postsMap } = usePostsApi();
@@ -18,14 +19,14 @@ const PostsPage: React.FC = () => {
   if (isLoading) return <h1>Loading...</h1>;
 
   return (
-    <div>
+    <Styled.Wrapper>
       {!!postsIds.length &&
         postsIds.map((id) => (
-          <li key={id}>
+          <Styled.ListItem key={id}>
             {postsMap[id].id} - {postsMap[id].body}
-          </li>
+          </Styled.ListItem>
         ))}
-    </div>
+    </Styled.Wrapper>
   );
 };
 

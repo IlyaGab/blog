@@ -30,7 +30,7 @@ export const getUsersByIdThunk = createAsyncThunk<
   // @ts-ignore
 >("users/getUserById", async (id, { rejectWithValue }) => {
   try {
-    const data = await ApiService.getUserById(id);
+    const { data } = await ApiService.getUserById(id);
     return data;
   } catch (error) {
     rejectWithValue({

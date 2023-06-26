@@ -1,6 +1,8 @@
 import styled from "styled-components"; //@shared-ui
 import { Link } from "react-router-dom";
 
+//TODO: add styles to users component
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;

@@ -32,8 +32,12 @@ const UserPage: React.FC = () => {
 
   return (
     <div>
-      <Button onClick={onTabClick(Tabs.Posts)} name={"Posts"} />
-      <Button onClick={onTabClick(Tabs.Todos)} name={"Todos"} />
+      <Button onClick={onTabClick(Tabs.Posts)} variant="text">
+        Posts
+      </Button>
+      <Button onClick={onTabClick(Tabs.Todos)} variant="contained">
+        Todos
+      </Button>
       {currentTab === Tabs.Posts && <PostsPage />}
       {currentTab === Tabs.Todos && <TodosPage />}
     </div>

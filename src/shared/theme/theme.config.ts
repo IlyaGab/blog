@@ -46,6 +46,9 @@ export const appTheme = {
         `,
       },
     },
+    animation: {
+      transition: "250ms",
+    },
   },
   [ThemeType.Dark]: {
     colors: {
@@ -72,6 +75,9 @@ export const appTheme = {
           font-size: 1.4rem;
         `,
       },
+    },
+    animation: {
+      transition: "250ms",
     },
   },
 };

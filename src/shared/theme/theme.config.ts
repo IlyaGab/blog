@@ -1,23 +1,30 @@
 import { css } from "styled-components";
 import { ThemeType } from "./theme.type";
 
-// const appTheme = new Map<ThemeType, AppTheme>();
-
-// appTheme.set(ThemeType.Dark, {
-//   colors: {
-//     primary: "red",
-//   },
-// });
-
-// appTheme.set(ThemeType.Light, {
-//   colors: {
-//     primary: "blue",
-//   },
-// });
-
-// export const getTheme = (themeType: ThemeType) => {
-//   return appTheme.get(themeType) as AppTheme;
-// };
+const commonStyles = {
+  fonts: {
+    primary: {
+      20: css`
+        font-family: "Montserrat";
+        font-weight: 400;
+        font-size: 1rem;
+      `,
+      40: css`
+        font-family: "Montserrat";
+        font-weight: 500;
+        font-size: 1.2rem;
+      `,
+      60: css`
+        font-family: "Montserrat";
+        font-weight: 700;
+        font-size: 1.4rem;
+      `,
+    },
+  },
+  animation: {
+    transition: "250ms",
+  },
+};
 
 export const appTheme = {
   [ThemeType.Light]: {
@@ -27,28 +34,8 @@ export const appTheme = {
         primary: "#f5f5f5",
       },
     },
-    fonts: {
-      primary: {
-        20: css`
-          font-family: "Montserrat";
-          font-weight: 400;
-          font-size: 1rem;
-        `,
-        40: css`
-          font-family: "Montserrat";
-          font-weight: 500;
-          font-size: 1.2rem;
-        `,
-        60: css`
-          font-family: "Montserrat";
-          font-weight: 700;
-          font-size: 1.4rem;
-        `,
-      },
-    },
-    animation: {
-      transition: "250ms",
-    },
+    fonts: commonStyles.fonts,
+    animation: commonStyles.animation,
   },
   [ThemeType.Dark]: {
     colors: {
@@ -57,28 +44,8 @@ export const appTheme = {
         primary: "#141414",
       },
     },
-    fonts: {
-      primary: {
-        20: css`
-          font-family: "Montserrat";
-          font-weight: 400;
-          font-size: 1rem;
-        `,
-        40: css`
-          font-family: "Montserrat";
-          font-weight: 500;
-          font-size: 1.2rem;
-        `,
-        60: css`
-          font-family: "Montserrat";
-          font-weight: 700;
-          font-size: 1.4rem;
-        `,
-      },
-    },
-    animation: {
-      transition: "250ms",
-    },
+    fonts: commonStyles.fonts,
+    animation: commonStyles.animation,
   },
 };
 

@@ -4,6 +4,7 @@ import { TodosPage } from "@pages/todos";
 import { Button } from "@shared/ui-kit/button";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import * as Styled from "./user.styles";
 
 enum Tabs {
   Posts = "POSTS",
@@ -31,16 +32,21 @@ const UserPage: React.FC = () => {
   if (isLoading) return <h1>Loading...</h1>;
 
   return (
-    <div>
-      <Button onClick={onTabClick(Tabs.Posts)} variant="text">
-        Posts
-      </Button>
-      <Button onClick={onTabClick(Tabs.Todos)} variant="contained">
-        Todos
-      </Button>
+    <>
+      <Styled.Wrapper>
+        <Button onClick={onTabClick(Tabs.Posts)} variant="text">
+          Posts
+        </Button>
+        <Button onClick={onTabClick(Tabs.Todos)} variant="contained">
+          Todos
+        </Button>
+        <Button onClick={onTabClick(Tabs.Todos)} variant="outlined">
+          Todos
+        </Button>
+      </Styled.Wrapper>
       {currentTab === Tabs.Posts && <PostsPage />}
       {currentTab === Tabs.Todos && <TodosPage />}
-    </div>
+    </>
   );
 };
 

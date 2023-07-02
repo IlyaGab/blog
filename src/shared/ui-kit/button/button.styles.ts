@@ -1,7 +1,23 @@
 import styled, { css } from "styled-components";
 import { ButtonProps } from "./button.types";
 
-const commonStyles = css`
+const buttonColors = {
+  colors: {
+    primary: "#ffffff",
+    secondary: "#000000",
+  },
+  backgrounds: {
+    primary: "#f5f5f5",
+    secondary: "#624de3",
+    transparent: "transparent",
+  },
+};
+
+const buttonBoxShadow = css`
+  box-shadow: 1px 1px 1px ${buttonColors.colors.secondary};
+`;
+
+const commonButtonStyles = css`
   font-size: 0.875rem;
   line-height: 1.75;
   letter-spacing: 0.03rem;
@@ -9,28 +25,42 @@ const commonStyles = css`
   min-width: 64px;
   border-radius: 4px;
   padding: 5px 20px;
-  ${({ theme }) => theme.fonts.primary[20]}
+  margin: 10px 20px auto;
+  ${({ theme }) => theme.fonts.primary[20]};
 `;
 
 const buttonStylesMap = {
   text: css`
-    background-color: transparent;
-    color: #1976d2;
+    background-color: ${buttonColors.backgrounds.transparent};
+    color: ${buttonColors.backgrounds.secondary};
     border: 0;
     &:hover {
-      background-color: ${({ theme }) => theme.colors.backgrounds.primary};
+      background-color: ${buttonColors.backgrounds.primary};
+      ${buttonBoxShadow}
     }
   `,
   outlined: css`
-    border: 1px solid green;
+    background-color: ${buttonColors.backgrounds.transparent};
+    border: 1px solid ${buttonColors.backgrounds.secondary};
+    color: ${buttonColors.backgrounds.secondary};
+    &:hover {
+      background-color: ${buttonColors.backgrounds.primary};
+      ${buttonBoxShadow}
+    }
   `,
   contained: css`
-    border: 1px solid blue;
+    border: 0;
+    color: ${buttonColors.colors.primary};
+    background-color: ${buttonColors.backgrounds.secondary};
+    &:hover {
+      opacity: 0.9;
+      ${buttonBoxShadow}
+    }
   `,
 };
 
 //{variant: contained | outlined | text}
 export const Button = styled.button<Pick<ButtonProps, "variant">>`
-  ${commonStyles}
+  ${commonButtonStyles}
   ${({ variant }) => buttonStylesMap[variant]}
 `;

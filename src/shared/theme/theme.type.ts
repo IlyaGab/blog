@@ -1,16 +1,20 @@
-import { DefaultTheme, ThemedCssFunction } from "styled-components";
+import { FlattenSimpleInterpolation } from "styled-components";
 
-export interface AppThemeType {
+export interface AppTheme {
   colors: {
     primary: string;
+    secondary: string;
+    backgrounds: {
+      primary: string;
+      secondary: string;
+    };
   };
   fonts: {
     primary: {
-      80: ThemedCssFunction<DefaultTheme>;
+      20: FlattenSimpleInterpolation;
+      40: FlattenSimpleInterpolation;
+      60: FlattenSimpleInterpolation;
     };
-  };
-  backgrounds: {
-    primary: string;
   };
 }
 

@@ -30,8 +30,10 @@ export const appTheme = {
   [ThemeType.Light]: {
     colors: {
       primary: "#000000",
+      secondary: "red",
       backgrounds: {
         primary: "#f5f5f5",
+        secondary: "blue",
       },
     },
     fonts: commonStyles.fonts,
@@ -40,8 +42,10 @@ export const appTheme = {
   [ThemeType.Dark]: {
     colors: {
       primary: "ffffff",
+      secondary: "red",
       backgrounds: {
         primary: "#141414",
+        secondary: "blue",
       },
     },
     fonts: commonStyles.fonts,

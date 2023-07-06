@@ -18,35 +18,35 @@ const Users: React.FC = () => {
   if (isLoading) return <h1>Loading...</h1>;
 
   return (
-    <table>
+    <Styled.Table>
       <thead>
         {dataTable.map((headerCell) => (
           <tr key={headerCell.id}>
-            <th>{headerCell.id}</th>
-            <th>{headerCell.name}</th>
-            <th>{headerCell.username}</th>
-            <th>{headerCell.email}</th>
-            <th>{headerCell.phone}</th>
-            <th>{headerCell.website}</th>
+            <Styled.Th>{headerCell.id}</Styled.Th>
+            <Styled.Th>{headerCell.name}</Styled.Th>
+            <Styled.Th>{headerCell.username}</Styled.Th>
+            <Styled.Th>{headerCell.email}</Styled.Th>
+            <Styled.Th>{headerCell.phone}</Styled.Th>
+            <Styled.Th>{headerCell.website}</Styled.Th>
           </tr>
         ))}
       </thead>
       <tbody>
         {!!usersIds.length &&
-          usersIds.map((id) => (
-            <tr key={id}>
-              <td>{usersMap[id].id}</td>
-              <td>
+          usersIds.map((id, index) => (
+            <Styled.Tr even={index % 2 !== 0} key={id}>
+              <Styled.Td>{usersMap[id].id}</Styled.Td>
+              <Styled.Td>
                 <Styled.UsersLink to={`${id}`}>{usersMap[id].name}</Styled.UsersLink>
-              </td>
-              <td>{usersMap[id].username}</td>
-              <td>{usersMap[id].email}</td>
-              <td>{usersMap[id].phone}</td>
-              <td>{usersMap[id].website}</td>
-            </tr>
+              </Styled.Td>
+              <Styled.Td>{usersMap[id].username}</Styled.Td>
+              <Styled.Td>{usersMap[id].email}</Styled.Td>
+              <Styled.Td>{usersMap[id].phone}</Styled.Td>
+              <Styled.Td>{usersMap[id].website}</Styled.Td>
+            </Styled.Tr>
           ))}
       </tbody>
-    </table>
+    </Styled.Table>
   );
 };
 

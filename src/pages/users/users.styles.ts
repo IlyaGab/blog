@@ -4,14 +4,10 @@ import { Link } from "react-router-dom";
 //TODO: add styles to users component
 
 const evenStyles = css`
-  color: ${({ theme }) => theme.colors.primary};
   background: ${({ theme }) => theme.colors.backgrounds.primary};
 `;
 
-const notEvenStyles = css`
-  color: ${({ theme }) => theme.colors.secondary};
-  background: ${({ theme }) => theme.colors.backgrounds.secondary};
-`;
+const notEvenStyles = css``;
 
 export const Wrapper = styled.div`
   display: flex;
@@ -42,8 +38,7 @@ export const Th = styled.th`
   font-weight: 700;
 `;
 
-export const Td = styled.td<{ zalupa?: boolean }>`
-  border: 1px solid black;
+export const Td = styled.td`
   word-wrap: break-word;
   text-align: center;
   padding: 5px;

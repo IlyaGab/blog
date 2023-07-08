@@ -33,7 +33,7 @@ export const appTheme = {
       secondary: "red",
       backgrounds: {
         primary: "#f5f5f5",
-        secondary: "blue",
+        secondary: "#F7F6FE",
       },
     },
     fonts: commonStyles.fonts,

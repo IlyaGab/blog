@@ -3,8 +3,7 @@ import * as Styled from "./users.styles";
 import { useUsersApi } from "@core/store";
 import { dataTable } from "./users.data";
 import { useSearchParams } from "react-router-dom";
-
-// TODO: add search input
+import { Input } from "@shared/ui-kit/input";
 
 const Users: React.FC = () => {
   const { getAllUsers, cleanUsers, isLoading, usersIds, usersMap } = useUsersApi();
@@ -36,7 +35,8 @@ const Users: React.FC = () => {
 
   return (
     <>
-      <input type="search" name="search" value={inputValue} onChange={handleChange} />
+      <Input type="search" variant="outlined" defaultValue={inputValue} onChange={handleChange} />
+      <Input type="search" variant="filled" defaultValue={inputValue} onChange={handleChange} />
 
       <Styled.Table>
         <thead>

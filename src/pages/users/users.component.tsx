@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import * as Styled from "./users.styles";
 import { useUsersApi } from "@core/store";
 import { dataTable } from "./users.data";
@@ -10,21 +10,22 @@ const Users: React.FC = () => {
   const { getAllUsers, cleanUsers, isLoading, usersIds, usersMap } = useUsersApi();
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const usersQuery = searchParams.get("username") || "";
-  const [state, setState] = useState(usersQuery);
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const value = e.currentTarget.search.value;
-    setSearchParams({ username: value });
-  };
+  const [inputValue, setInputValue] = useState("");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setState(e.currentTarget.value);
+    const { value } = e.currentTarget;
+    setSearchParams({ userName: value });
+    setInputValue(value);
   };
 
   useEffect(() => {
-    setState("");
+    const userName = searchParams.get("userName");
+    if (userName) {
+      setInputValue(userName);
+    }
+  }, [searchParams]);
+
+  useEffect(() => {
     getAllUsers();
     return () => {
       cleanUsers();
@@ -35,10 +36,8 @@ const Users: React.FC = () => {
 
   return (
     <>
-      <form autoComplete="off" onSubmit={handleSubmit}>
-        <input type="search" name="search" value={state} onChange={handleChange} />
-        <input type="submit" value="Search" />
-      </form>
+      <input type="search" name="search" value={inputValue} onChange={handleChange} />
+
       <Styled.Table>
         <thead>
           {dataTable.map((headerCell) => (
@@ -55,7 +54,7 @@ const Users: React.FC = () => {
         <tbody>
           {!!usersIds.length &&
             usersIds
-              .filter((id) => usersMap[id].name.toLowerCase().includes(usersQuery))
+              .filter((id) => usersMap[id].name.toLowerCase().includes(inputValue))
               .map((id, index) => (
                 <Styled.Tr even={index % 2 === 0} key={id}>
                   <Styled.Td>{usersMap[id].id}</Styled.Td>

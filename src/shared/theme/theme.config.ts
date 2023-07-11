@@ -1,6 +1,31 @@
 import { css } from "styled-components";
 import { ThemeType } from "./theme.type";
 
+/*
+palette: {
+  pink:{
+    50: "#1231231"
+  }
+  blue: {
+    50: "#123123"
+  }
+  primary: {
+      light: '#757ce8',
+      main: '#3f50b5',
+      dark: '#002884',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#ff7961',
+      main: '#f44336',
+      dark: '#ba000d',
+      contrastText: '#000',
+    },
+}
+
+
+*/
+
 const commonStyles = {
   fonts: {
     primary: {
@@ -36,8 +61,7 @@ export const appTheme = {
         secondary: "#F7F6FE",
       },
     },
-    fonts: commonStyles.fonts,
-    animation: commonStyles.animation,
+    ...commonStyles,
   },
   [ThemeType.Dark]: {
     colors: {
@@ -48,8 +72,9 @@ export const appTheme = {
         secondary: "blue",
       },
     },
-    fonts: commonStyles.fonts,
-    animation: commonStyles.animation,
+    // fonts: commonStyles.fonts,
+    // animation: commonStyles.animation,
+    ...commonStyles,
   },
 };
 

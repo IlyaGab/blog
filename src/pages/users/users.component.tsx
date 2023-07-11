@@ -35,9 +35,13 @@ const Users: React.FC = () => {
 
   return (
     <>
-      <Input type="search" variant="outlined" defaultValue={inputValue} onChange={handleChange} />
-      <Input type="search" variant="filled" defaultValue={inputValue} onChange={handleChange} />
-
+      <Input
+        placeholder="Search..."
+        type="search"
+        variant="outlined"
+        defaultValue={inputValue}
+        onChange={handleChange}
+      />
       <Styled.Table>
         <thead>
           {dataTable.map((headerCell) => (

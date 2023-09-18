@@ -23,8 +23,8 @@ export const getAllUsersThunk = createAsyncThunk<
 });
 
 export const getUsersByIdThunk = createAsyncThunk<
-  User,
-  string,
+  Awaited<ReturnType<typeof ApiService.getUserById>>["data"],
+  Parameters<typeof ApiService.getUserById>[0],
   { rejectValue: MyKnownError }
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore

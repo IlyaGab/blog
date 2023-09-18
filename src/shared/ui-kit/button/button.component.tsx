@@ -1,8 +1,9 @@
 import React from "react";
-import { ButtonType } from "./button.types";
+import { ButtonProps } from "./button.types";
+import * as Styled from "./button.styles";
 
-const Button: React.FC<ButtonType> = ({ name, onClick }) => {
-  return <button onClick={onClick}>{name}</button>;
+const Button: React.FC<ButtonProps> = ({ children, ...restProps }) => {
+  return <Styled.Button {...restProps}>{children}</Styled.Button>;
 };
 
 export default Button;

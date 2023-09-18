@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router";
 import * as Styled from "./todos.styles";
+import { Preloader } from "@shared/ui-kit/preloader";
 
 const TodosPage: React.FC = () => {
   const { getTodosByUserId, cleanTodos, isLoading, todoIds, todoMap } = useTodosApi();
@@ -17,7 +18,7 @@ const TodosPage: React.FC = () => {
     };
   }, [getTodosByUserId, cleanTodos, id]);
 
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <Preloader />;
 
   return (
     <Styled.Wrapper>

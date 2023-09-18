@@ -6,7 +6,6 @@ const Header: React.FC = () => {
     <Styled.Header>
       <Styled.NavigationLink to="/blog">Home</Styled.NavigationLink>
       <Styled.NavigationLink to="/users">Users</Styled.NavigationLink>
-      <Styled.NavigationLink to="/todos">Todos</Styled.NavigationLink>
       <Styled.NavigationLink to="/news">News</Styled.NavigationLink>
     </Styled.Header>
   );

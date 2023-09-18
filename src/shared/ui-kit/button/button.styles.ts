@@ -8,7 +8,7 @@ const buttonColors = {
   },
   backgrounds: {
     primary: "#f5f5f5",
-    secondary: "#624de3",
+    secondary: "#000000",
     transparent: "transparent",
   },
 };
@@ -41,8 +41,8 @@ const buttonStylesMap = {
   `,
   outlined: css`
     background-color: ${buttonColors.backgrounds.transparent};
-    border: 1px solid ${buttonColors.backgrounds.secondary};
-    color: ${buttonColors.backgrounds.secondary};
+    border: 1px solid ${buttonColors.colors.secondary};
+    color: ${buttonColors.colors.secondary};
     &:hover {
       background-color: ${buttonColors.backgrounds.primary};
       ${buttonBoxShadow}

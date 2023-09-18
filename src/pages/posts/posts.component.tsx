@@ -2,6 +2,7 @@ import { usePostsApi } from "@core/store/posts";
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import * as Styled from "./posts.styles";
+import { Preloader } from "@shared/ui-kit/preloader";
 
 const PostsPage: React.FC = () => {
   const { getPostsByUserId, cleanPosts, isLoading, postsIds, postsMap } = usePostsApi();
@@ -16,7 +17,7 @@ const PostsPage: React.FC = () => {
     };
   }, [getPostsByUserId, cleanPosts, id]);
 
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <Preloader />;
 
   return (
     <Styled.Wrapper>

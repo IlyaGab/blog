@@ -12,7 +12,7 @@ export const useUsersApi = () => {
   }, [dispatch]);
 
   const getUserById = useCallback(
-    (id: string) => {
+    (id: Parameters<typeof getUsersByIdThunk>[0]) => {
       return dispatch(getUsersByIdThunk(id));
     },
     [dispatch]

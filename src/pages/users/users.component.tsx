@@ -1,9 +1,10 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import * as Styled from "./users.styles";
-import { useUsersApi } from "@core/store";
-import { dataTable } from "./users.data";
 import { useSearchParams } from "react-router-dom";
+import { useUsersApi } from "@core/store";
 import { Input } from "@shared/ui-kit/input";
+import { Preloader } from "@shared/ui-kit/preloader";
+import { dataTable } from "./users.data";
+import * as Styled from "./users.styles";
 
 const Users: React.FC = () => {
   const { getAllUsers, cleanUsers, isLoading, usersIds, usersMap } = useUsersApi();
@@ -31,7 +32,7 @@ const Users: React.FC = () => {
     };
   }, [getAllUsers, cleanUsers]);
 
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <Preloader />;
 
   return (
     <>
@@ -58,7 +59,7 @@ const Users: React.FC = () => {
         <tbody>
           {!!usersIds.length &&
             usersIds
-              .filter((id) => usersMap[id].name.toLowerCase().includes(inputValue))
+              .filter((id) => usersMap[id].name.toLowerCase().includes(inputValue.toLowerCase()))
               .map((id, index) => (
                 <Styled.Tr even={index % 2 === 0} key={id}>
                   <Styled.Td>{usersMap[id].id}</Styled.Td>

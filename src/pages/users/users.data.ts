@@ -1,7 +1,3 @@
-export const dataTable: Table[] = [
-  { id: "id", name: "name", username: "username", email: "email", phone: "phone", website: "website" },
-];
-
 interface Table {
   id: string;
   name: string;
@@ -10,3 +6,7 @@ interface Table {
   phone: string;
   website: string;
 }
+
+export const dataTable: Table[] = [
+  { id: "id", name: "name", username: "username", email: "email", phone: "phone", website: "website" },
+];

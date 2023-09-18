@@ -46,5 +46,5 @@ export const Td = styled.td`
 `;
 
 export const Tr = styled.tr<{ even?: boolean }>`
-  ${({ even }) => (even ? evenStyles : notEvenStyles)}
+  ${({ even }) => (even ? evenStyles : notEvenStyles)} // TODO: notEvenStyles is empty. Remove variable.
 `;

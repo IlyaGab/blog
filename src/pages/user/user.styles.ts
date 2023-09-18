@@ -8,10 +8,10 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   margin: 20px auto;
-  padding: 10px;
-  width: 80%;
-  height: 30%;
-  min-height: 10rem;
+  padding: 10px; // TODO: Use px or rem
+  width: 80%; // TODO: Remove 80% value. Use pagging/margin instead.
+  height: 30%; // TODO: Remove 30% value. Use pagging/margin instead.
+  min-height: 10rem; // TODO: Use px or rem
   border: 2px solid ${({ theme }) => theme.colors.backgrounds.primary};
   border-radius: 5px;
   ${({ theme }) => theme.fonts.primary[20]}

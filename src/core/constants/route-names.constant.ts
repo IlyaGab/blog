@@ -6,3 +6,4 @@ export enum RouteNames {
   USERS = "/users",
   POSTS = "/posts",
 }
+// TODO: Rewritte using enum sintax. https://www.typescriptlang.org/docs/handbook/enums.html#string-enums

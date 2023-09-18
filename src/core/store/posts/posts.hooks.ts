@@ -8,6 +8,7 @@ import { cleanPostsAction } from "./posts.actions";
 export const usePostsApi = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { isLoading, postsIds, postsMap } = useSelector(postsSelector);
+  // TODO: const state = useSelector(postsSelector); Another using. Not principal. Just example
 
   const getPostsByUserId = useCallback(
     (id: string) => {
@@ -21,4 +22,5 @@ export const usePostsApi = () => {
   }, [dispatch]);
 
   return { getPostsByUserId, cleanPosts, isLoading, postsIds, postsMap };
+  // TODO: return { getPostsByUserId, cleanPosts, ...state }; Another using. Not principal. Just example
 };

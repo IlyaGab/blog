@@ -18,9 +18,9 @@ const buttonBoxShadow = css`
 `;
 
 const commonButtonStyles = css`
-  font-size: 0.875rem;
+  font-size: 0.875rem; // rem or px.
   line-height: 1.75;
-  letter-spacing: 0.03rem;
+  letter-spacing: 0.03rem; // rem or px.
   text-transform: uppercase;
   min-width: 64px;
   border-radius: 4px;

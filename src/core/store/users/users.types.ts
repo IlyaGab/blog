@@ -30,12 +30,3 @@ export interface UsersState {
   usersMap: { [key: string]: User };
   currentUser: User | null;
 }
-
-export interface Table {
-  id: string;
-  name: string;
-  username: string;
-  email: string;
-  phone: string;
-  website: string;
-}

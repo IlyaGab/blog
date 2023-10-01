@@ -2,13 +2,12 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   padding: 20px;
+  max-width: 800px;
   ${({ theme }) => theme.fonts.primary[20]};
 `;
 
-export const ListItem = styled.li`
-  list-style-type: none;
-`;
-
 export const Body = styled.div`
-  text-decoration: none !important;
+  &:hover {
+    text-decoration: none;
+  }
 `;

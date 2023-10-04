@@ -8,6 +8,9 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 const Router: React.FC = () => {
+  /* TODO: Use router config. You can use thic config in mapper. In header component
+    https://v5.reactrouter.com/web/example/route-config
+  */ 
   return (
     <Routes>
       <Route path={RouteNames.USERS} element={<UsersPage />} />
